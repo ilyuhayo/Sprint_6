@@ -7,9 +7,6 @@ class OrderTestData:
         "surname": "Золотов",
         "address": "Улица Пушкина, дом 123",
         "phone_number": "88005553535",
-        "metro_station": "Черкизовская",
-        "delivery_day": "029",
-        "rental_period": "сутки",
         "scooter_color": OrderPageLocators.BLACK_PEARL_CHECKBOX,
         "comment": "Привезите как можно скорее"
     }
@@ -19,9 +16,6 @@ class OrderTestData:
         "surname": "Петров",
         "address": "улица Мира, дом 321",
         "phone_number": "890123456789",
-        "metro_station": "Сокольники",
-        "delivery_day": "022",
-        "rental_period": "двое суток",
-        "scooter_color": OrderPageLocators.BLACK_PEARL_CHECKBOX,
+        "scooter_color": OrderPageLocators.GRAY_HOPELESSNESS,
         "comment": "Спасибо за оперативность"
     }
