@@ -26,7 +26,7 @@ class TestOrderPage:
         order_page.set_phone_number("88005553535")
         order_page.click_next_button()
         order_page.select_delivery_day()
-        order_page.find_element_located((By.XPATH, "//div[@class='react-datepicker__day react-datepicker__day--015']")).click()
+        order_page.find_element_located((By.XPATH, "//div[@class='react-datepicker__day react-datepicker__day--029']")).click()
         order_page.select_rental_period()
         order_page.find_element_located((By.XPATH, "//div[text()='сутки']")).click()
         order_page.select_scooter_color(OrderPageLocators.BLACK_PEARL_CHECKBOX)
