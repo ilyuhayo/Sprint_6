@@ -47,7 +47,8 @@ class TestOrderPage:
         main_page.click_order_button(MainPageLocators.ORDER_BUTTON_HEADER)
         order_page = OrderPage(driver)
         order_page.click_logo_scooter()
-        assert driver.current_url == URLS.SCOOTER_SITE
+        base_page = BasePage(driver)
+        assert base_page.get_current_url() == URLS.SCOOTER_SITE
 
 
     def test_check_yandex_logo(self, driver):
@@ -57,10 +58,12 @@ class TestOrderPage:
         main_page.click_order_button(MainPageLocators.ORDER_BUTTON_HEADER)
         order_page = OrderPage(driver)
         order_page.click_logo_yandex()
-        windows_handles = driver.window_handles
-        driver.switch_to.window(windows_handles[-1])
+        base_page = BasePage(driver)
+        windows_handles = base_page.get_window_handles()
+        base_page.get_switch_to_window(windows_handles[-1])
         expected_url = URLS.YANDEX_SITE
         wait = WebDriverWait(driver, 10)
         wait.until(EC.url_to_be(expected_url))
-        assert expected_url in driver.current_url
+        base_page = BasePage(driver)
+        assert expected_url in base_page.get_current_url()
 

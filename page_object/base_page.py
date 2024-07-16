@@ -23,3 +23,12 @@ class BasePage:
 
     def scroll_into_view(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+    def get_current_url(self):
+        return self.driver.current_url
+
+    def get_window_handles(self):
+        return self.driver.window_handles
+
+    def get_switch_to_window(self, value):
+        return self.driver.switch_to.window(value)
