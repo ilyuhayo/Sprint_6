@@ -41,13 +41,13 @@ class OrderPage(BasePage):
     def confirm_order(self):
         self.find_element_located(OrderPageLocators.CONFIRM_ORDER_BUTTON).click()
 
-    def shows_created_order_window(self):
-        order_element = self.find_element_located(OrderPageLocators.CREATED_ORDER_WINDOW)
-        order_text = order_element.text
-        return order_text
+    def get_order_success_message(self):
+        return self.find_element_located(OrderPageLocators.CREATED_ORDER_WINDOW).text
 
     def click_logo_scooter(self):
         self.find_element_located(OrderPageLocators.SCOOTER_LOGO).click()
+
+
 
     def click_check_status_button(self):
         self.find_element_located(OrderPageLocators.GET_STATUS_BUTTON).click()
