@@ -47,8 +47,6 @@ class OrderPage(BasePage):
     def click_logo_scooter(self):
         self.find_element_located(OrderPageLocators.SCOOTER_LOGO).click()
 
-
-
     def click_check_status_button(self):
         self.find_element_located(OrderPageLocators.GET_STATUS_BUTTON).click()
 

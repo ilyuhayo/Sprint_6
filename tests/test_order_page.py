@@ -9,6 +9,7 @@ from locators.main_page_locators import MainPageLocators
 from page_object.order_page import OrderPage
 from locators.order_page_locators import OrderPageLocators
 from test_constants import OrderTestData
+from urls import URLS
 from conftest import driver
 
 
@@ -17,7 +18,7 @@ class TestOrderPage:
     def test_fill_order_form(self, test_input, driver):
         data = test_input
         main_page = MainPage(driver)
-        main_page.go_to_site('https://qa-scooter.praktikum-services.ru/')
+        main_page.go_to_site(URLS.SCOOTER_SITE)
         main_page.accept_cookies()
         main_page.click_order_button(MainPageLocators.ORDER_BUTTON_HEADER)
         order_page = OrderPage(driver)
@@ -41,24 +42,25 @@ class TestOrderPage:
 
     def test_check_scooter_logo(self, driver):
         main_page = MainPage(driver)
-        main_page.go_to_site('https://qa-scooter.praktikum-services.ru/')
+        main_page.go_to_site(URLS.SCOOTER_SITE)
         main_page.accept_cookies()
         main_page.click_order_button(MainPageLocators.ORDER_BUTTON_HEADER)
         order_page = OrderPage(driver)
         order_page.click_logo_scooter()
-        assert driver.current_url == "https://qa-scooter.praktikum-services.ru/"
+        assert driver.current_url == URLS.SCOOTER_SITE
 
 
     def test_check_yandex_logo(self, driver):
         main_page = MainPage(driver)
-        main_page.go_to_site('https://qa-scooter.praktikum-services.ru/')
+        main_page.go_to_site(URLS.SCOOTER_SITE)
         main_page.accept_cookies()
         main_page.click_order_button(MainPageLocators.ORDER_BUTTON_HEADER)
         order_page = OrderPage(driver)
         order_page.click_logo_yandex()
         windows_handles = driver.window_handles
         driver.switch_to.window(windows_handles[-1])
-        expected_url = "https://dzen.ru/?yredirect=true"
+        expected_url = URLS.YANDEX_SITE
         wait = WebDriverWait(driver, 10)
         wait.until(EC.url_to_be(expected_url))
         assert expected_url in driver.current_url
+
